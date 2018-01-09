@@ -15,7 +15,7 @@ T.get('search/tweets', params, (err, data, response) => {
 		}
 		for (let i = 0; i < data.statuses.length; i++) {
 			console.log(data.statuses[i].text);
-			console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`');
+			console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 			
 			let id = { id: data.statuses[i].id_str };
 
