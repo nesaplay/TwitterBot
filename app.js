@@ -3,7 +3,7 @@ const config = require('./config.js');
 const T = new Twitter(config);
 
 let params = {
-	q: '#ios',
+	q: '#btcreact',
 	count: 5
 	// result_type: 'recent'
 };
