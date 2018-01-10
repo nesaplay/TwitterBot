@@ -4,7 +4,7 @@ const T = new Twitter(config);
 
 let params = {
 	q: '#ios',
-	count: 10
+	count: 5
 	// result_type: 'recent'
 };
 
@@ -19,12 +19,27 @@ T.get('search/tweets', params, (err, data, response) => {
 			
 			let id = { id: data.statuses[i].id_str };
 
+			// Favorite Tweet by ID
 			T.post('favorites/create', id, (err, response) => {
 				if (!err) {
 					let username = response.user.screen_name;
 					let tweetId = response.id_str;
 					console.log(
 						'Favorited: ',
+						`https://twitter.com/${username}/status/${tweetId}`
+					);
+				} else {
+					console.log(err);
+				}
+			});
+
+			// Retweet by ID
+			T.post('statuses/retweet', id, (err, response) => {
+				if (!err) {
+					let username = response.user.screen_name;
+					let tweetId = response.id_str;
+					console.log(
+						'Retweeted: ',
 						`https://twitter.com/${username}/status/${tweetId}`
 					);
 				} else {
